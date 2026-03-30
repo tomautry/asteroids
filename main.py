@@ -15,15 +15,17 @@ def main():
     while True:
         log_state()
         for event in pygame.event.get():
-            pass
-        screen.fill("black")
-        pygame.display.flip()
-        for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+
         milliseconds = clock.tick(60)
         dt = milliseconds / 1000.0
+
+        player.update(dt)
+
+        screen.fill("black")
         player.draw(screen)
+        pygame.display.flip()
 
 
 if __name__ == "__main__":
